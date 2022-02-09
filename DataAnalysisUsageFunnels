@@ -1,0 +1,48 @@
+SELECT *
+ FROM survey
+ LIMIT 10;
+
+ SELECT question, COUNT(DISTINCT user_id)
+ FROM survey
+ GROUP BY 1;
+
+ SELECT *
+ FROM quiz
+ LIMIT 5;
+
+SELECT *
+ FROM home_try_on
+LIMIT 5;
+
+ SELECT *
+ FROM purchase
+ LIMIT 5;
+
+SELECT DISTINCT q.user_id,
+   h.user_id IS NOT NULL AS 'is_home_try_on',
+   h.number_of_pairs,
+   p.user_id IS NOT NULL AS 'is_purchase'
+FROM quiz as 'q'
+LEFT JOIN home_try_on AS 'h'
+ON h.user_id = q.user_id
+LEFT JOIN purchase AS 'p'
+ON p.user_id = h.user_id
+LIMIT 10;
+
+SELECT h.number_of_pairs,
+COUNT(*) AS 'total customers',
+   SUM(h.user_id IS NOT NULL) AS 'is_home_try_on',
+   SUM(p.user_id IS NOT NULL) AS 'is_purchase',
+  1.0 * SUM(h.user_id IS NOT NULL)/ COUNT(*) AS '% step 1',
+   1.0 * SUM(p.user_id IS NOT NULL) / SUM(h.user_id IS NOT NULL) AS '% step 2'
+FROM quiz as 'q'
+LEFT JOIN home_try_on AS 'h'
+ON h.user_id = q.user_id
+LEFT JOIN purchase AS 'p'
+ON p.user_id = h.user_id
+GROUP BY h.number_of_pairs
+LIMIT 10;
+
+SELECT COUNT(style)
+FROM quiz
+GROUP BY style;
