@@ -34,12 +34,3 @@ services:
     - postgresdb
     env_file:
     - .env
-    
-
-  slackbot:
-    build: slackbot/
-    volumes:
-    - ./slackbot/:/app
-    depends_on:
-    - mongodb
-    - postgresdb
