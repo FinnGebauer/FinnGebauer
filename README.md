@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @FinnGebauer
-- 👀 I’m interested in Data Analysis, Marketing Analytics and Data Science!
-- If you are interested in music, take a peek at my Spotify Recommender project!
+- 👀 I’m interested in data topics in the music or sports & outdoor industry as well as topics surrounding sustainability.
+- 🎵If you are interested in music, take a peek at my Spotify Recommender project!
 - 🌱 I’m always looking to dig deeper into SQL and Python
 - 📫 How to reach me: Find me on LinkedIn!
 
